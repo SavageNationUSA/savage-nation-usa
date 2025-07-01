@@ -1,29 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Layout from "../Layout";
 
 export default function Videos() {
   const videoIds = ["YQt8q8VrNbw", "QssmhbtA_g0", "vooONATHNfo"];
   return (
-    <Layout className="p-8 text-black">
-      <h2 className="text-4xl font-bold mb-6">Savage Nation Videos</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <div style={{ background: "#111", minHeight: "100vh", padding: 32 }}>
+      <h2 style={{ color: "white", fontSize: 32, marginBottom: 24 }}>Savage Nation Videos</h2>
+      <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
         {videoIds.map(id => (
-          <div key={id} className="relative pb-[56.25%]">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${id}`}
-              title="Savage Nation Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <iframe
+            key={id}
+            width="360"
+            height="215"
+            src={`https://www.youtube.com/embed/${id}`}
+            title="Savage Nation Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ border: "4px solid #fff", borderRadius: 12 }}
+          />
         ))}
       </div>
-      <Link to="/landing">
-        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
-      </Link>
-    </Layout>
+      <br />
+      <a href="/landing">
+        <button
+          style={{
+            marginTop: 32,
+            padding: "14px 42px",
+            borderRadius: 8,
+            background: "#eee",
+            fontWeight: "bold",
+            fontSize: 18,
+            border: "none",
+            boxShadow: "2px 4px 14px #0002"
+          }}>
+          Back
+        </button>
+      </a>
+    </div>
   );
 }
