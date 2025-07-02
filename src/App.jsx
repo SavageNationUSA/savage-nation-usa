@@ -14,6 +14,7 @@ import Charities from "./pages/Charities";
 import Mission  from "./pages/Mission";
 import ToolShed from "./pages/ToolShed";
 import WeeklyBlog from "./pages/WeeklyBlog";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
@@ -30,8 +31,9 @@ export default function App() {
         <Route path="/story"     element={<Story />} />
         <Route path="/charities" element={<Charities />} />
         <Route path="/mission"   element={<Mission />} />
-	<Route path="/toolshed" element={<ToolShed />} />
-	<Route path="/weeklyblog" element={<WeeklyBlog />} />
+        <Route path="/toolshed" element={<ToolShed />} />
+        <Route path="/weeklyblog" element={<WeeklyBlog />} />
+        <Route path="/login"    element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
