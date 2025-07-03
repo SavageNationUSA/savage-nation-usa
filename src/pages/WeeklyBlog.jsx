@@ -12,7 +12,7 @@ export default function WeeklyBlog() {
 
   return (
     <Layout className="p-8 text-black">
-      <h2 className="text-4xl font-bold mb-4">Weekly Blog</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4">Weekly Blog</h2>
       <p className="mb-6 max-w-2xl">
         Read the latest updates, stories, and patriotic rants from the Savage Nation USA crew. New blogs drop every week!
       </p>

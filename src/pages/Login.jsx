@@ -22,7 +22,7 @@ export default function Login() {
 
   return (
     <Layout className="p-8 text-black">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <h2 className="text-xl sm:text-2xl font-bold mb-4">Login</h2>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4 max-w-xs">
         <input
           type="text"
