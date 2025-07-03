@@ -22,3 +22,14 @@ Run lint checks using:
 npm run lint
 ```
 
+
+## Authentication
+
+Use these sample credentials to access the site:
+
+| Role  | Username | Password     |
+|-------|----------|--------------|
+| Admin | `admin`  | `password123`|
+| User  | `user`   | `letmein`    |
+
+Authenticated users can visit the **Store** and **Newsletter** pages, while admins can edit blogs.
