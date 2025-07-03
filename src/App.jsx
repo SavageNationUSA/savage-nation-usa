@@ -14,7 +14,7 @@ import Charities from "./pages/Charities";
 import Mission  from "./pages/Mission";
 import ToolShed from "./pages/ToolShed";
 import WeeklyBlog from "./pages/WeeklyBlog";
-import BlogAdmin from "./pages/BlogAdmin";
+import EditBlog from "./pages/EditBlog";
 import Login from "./pages/Login";
 
 export default function App() {
@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/mission"   element={<Mission />} />
         <Route path="/toolshed" element={<ToolShed />} />
         <Route path="/weeklyblog" element={<WeeklyBlog />} />
-        <Route path="/blog-admin" element={<BlogAdmin />} />
+        <Route path="/edit-blog" element={<EditBlog />} />
         <Route path="/login"    element={<Login />} />
       </Routes>
     </BrowserRouter>
