@@ -21,9 +21,9 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[url('/bg.png')] bg-cover bg-center text-white">
-      <aside className="w-64 bg-black bg-opacity-70 p-6">
-        <h3 className="text-2xl font-bold mb-4">Navigation</h3>
+    <div className="min-h-screen flex flex-col sm:flex-row bg-[url('/bg.png')] bg-cover bg-center text-white">
+      <aside className="w-full sm:w-64 bg-black bg-opacity-70 p-6">
+        <h3 className="text-xl sm:text-2xl font-bold mb-4">Navigation</h3>
         <nav className="flex flex-col space-y-2">
           {pages.map((p) => {
             const key = typeof p === "object" ? p.key : p;
@@ -42,15 +42,15 @@ export default function Landing() {
           })}
         </nav>
       </aside>
-      <main className="flex-1 p-10">
-        <h2 className="text-4xl font-bold mb-6 text-white">Welcome to Savage Nation USA</h2>
+      <main className="flex-1 p-6 sm:p-10 overflow-y-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">Welcome to Savage Nation USA</h2>
         <input
           type="text"
           placeholder="Search pages..."
           value={navTerm}
           onChange={(e) => setNavTerm(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleNav(navTerm)}
-          className="w-full max-w-md px-4 py-2 mb-8 rounded bg-white/30 text-black"
+          className="w-full max-w-md px-4 py-2 mb-8 rounded bg-white/30 text-black placeholder-black/50"
         />
         <p>Use the sidebar to navigate.</p>
       </main>

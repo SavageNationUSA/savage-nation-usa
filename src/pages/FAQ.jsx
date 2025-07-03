@@ -11,7 +11,7 @@ const faqItems = [
 export default function FAQ() {
   return (
     <Layout className="p-8 text-black">
-      <h2 className="text-4xl font-bold mb-6">FAQ</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6">FAQ</h2>
       <div className="space-y-4 max-w-2xl">
         {faqItems.map((item, i) => (
           <div key={i}>

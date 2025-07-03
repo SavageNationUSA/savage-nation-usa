@@ -13,7 +13,7 @@ export default function Contact() {
 
   return (
     <Layout className="p-8 text-black">
-      <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4">Contact Us</h2>
       <form onSubmit={handleSubmit} className="max-w-lg space-y-4">
         <input name="name" value={form.name} onChange={handleChange} placeholder="Name"
                className="w-full px-4 py-2 border rounded" required />

@@ -6,7 +6,7 @@ export default function Layout({ children, className = "", style = {} }) {
   return (
     <div
       className={
-        "min-h-screen flex flex-col items-center justify-center bg-cover bg-center " +
+        "min-h-screen relative flex flex-col items-center justify-center bg-cover bg-center " +
         className
       }
       style={{ backgroundImage: "url('/bg.png')", ...style }}
@@ -21,7 +21,7 @@ export default function Layout({ children, className = "", style = {} }) {
           </button>
         </div>
       )}
-      {children}
+      <div className="container mx-auto w-full p-4 sm:p-8">{children}</div>
     </div>
   );
 }

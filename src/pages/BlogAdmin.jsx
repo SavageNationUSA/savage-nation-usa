@@ -40,7 +40,7 @@ export default function BlogAdmin() {
 
   return (
     <Layout className="p-8 text-black overflow-y-auto" style={{ minHeight: "100vh" }}>
-      <h2 className="text-3xl font-bold mb-4">Blog Admin</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-4">Blog Admin</h2>
       <form onSubmit={handleSubmit} className="space-y-3 mb-6 max-w-md">
         <input
           name="title"
