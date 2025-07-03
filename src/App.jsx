@@ -17,6 +17,7 @@ import WeeklyBlog from "./pages/WeeklyBlog";
 import EditBlog from "./pages/EditBlog";
 import BlogAdmin from "./pages/BlogAdmin";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/edit-blog" element={<EditBlog />} />
         <Route path="/blog-admin" element={<BlogAdmin />} />
         <Route path="/login"    element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
