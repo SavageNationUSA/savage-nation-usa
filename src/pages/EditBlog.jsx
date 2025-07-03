@@ -80,9 +80,20 @@ export default function EditBlog() {
       </form>
       <ul className="space-y-2 max-w-xl">
         {posts.map((post) => (
-          <li key={post.id} className="border p-3 rounded flex justify-between items-center">
-            <div>
-              <h4 className="font-semibold">{post.title} {post.date && <span className="text-sm text-gray-600">({post.date})</span>}</h4>
+          <li
+            key={post.id}
+            className="border p-3 rounded flex justify-between items-start"
+          >
+            <div className="flex-1 mr-4">
+              <h4 className="font-semibold">
+                {post.title}{" "}
+                {post.date && (
+                  <span className="text-sm text-gray-600">({post.date})</span>
+                )}
+              </h4>
+              {post.content && (
+                <p className="text-sm mt-1 whitespace-pre-wrap">{post.content}</p>
+              )}
             </div>
             <button
               onClick={() => handleEdit(post)}
@@ -93,8 +104,8 @@ export default function EditBlog() {
           </li>
         ))}
       </ul>
-      <Link to="/landing" className="block mt-8">
-        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
+      <Link to="/weeklyblog" className="block mt-8">
+        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back to Blog</button>
       </Link>
     </Layout>
   );
