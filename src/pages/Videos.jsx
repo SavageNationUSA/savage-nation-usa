@@ -3,9 +3,9 @@ import React from "react";
 export default function Videos() {
   const videoIds = ["YQt8q8VrNbw", "QssmhbtA_g0", "vooONATHNfo"];
   return (
-    <div style={{ background: "#111", minHeight: "100vh", padding: 32 }}>
-      <h2 style={{ color: "white", fontSize: 32, marginBottom: 24 }}>Savage Nation Videos</h2>
-      <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+    <div className="bg-[#111] min-h-screen p-8">
+      <h2 className="text-white text-[32px] mb-6">Savage Nation Videos</h2>
+      <div className="flex flex-wrap gap-6">
         {videoIds.map(id => (
           <iframe
             key={id}
@@ -15,23 +15,15 @@ export default function Videos() {
             title="Savage Nation Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            style={{ border: "4px solid #fff", borderRadius: 12 }}
+            className="border-4 border-white rounded-lg"
           />
         ))}
       </div>
       <br />
       <a href="/landing">
         <button
-          style={{
-            marginTop: 32,
-            padding: "14px 42px",
-            borderRadius: 8,
-            background: "#eee",
-            fontWeight: "bold",
-            fontSize: 18,
-            border: "none",
-            boxShadow: "2px 4px 14px #0002"
-          }}>
+          className="mt-8 py-[14px] px-[42px] rounded bg-[#eee] font-bold text-lg border-none shadow-[2px_4px_14px_rgba(0,0,0,0.13)]"
+        >
           Back
         </button>
       </a>
