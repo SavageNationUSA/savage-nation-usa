@@ -18,8 +18,13 @@ export default function WeeklyBlog() {
       </p>
       <ul className="list-disc list-inside mb-6 max-w-2xl">
         {posts.map((post) => (
-          <li key={post.id}>
-            {post.title} {post.date && `(${post.date})`}
+          <li key={post.id} className="mb-4">
+            <h4 className="font-semibold">
+              {post.title} {post.date && `(${post.date})`}
+            </h4>
+            {post.content && (
+              <p className="whitespace-pre-wrap text-sm mt-1">{post.content}</p>
+            )}
           </li>
         ))}
       </ul>
