@@ -22,6 +22,14 @@ Run lint checks using:
 npm run lint
 ```
 
+## Testing
+
+Run the unit tests with:
+
+```bash
+npm test
+```
+
 
 ## Authentication
 
