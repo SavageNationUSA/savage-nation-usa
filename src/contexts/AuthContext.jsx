@@ -13,6 +13,11 @@ export function AuthProvider({ children }) {
       setIsAdmin(true);
       return true;
     }
+    if (username === "user" && password === "letmein") {
+      setIsAuthenticated(true);
+      setIsAdmin(false);
+      return true;
+    }
     return false;
   };
 

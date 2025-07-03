@@ -16,7 +16,9 @@ import ToolShed from "./pages/ToolShed";
 import WeeklyBlog from "./pages/WeeklyBlog";
 import Login from "./pages/Login";
 import EditBlog from "./pages/EditBlog";
+import Newsletter from "./pages/Newsletter";
 import ProtectedRoute from "./ProtectedRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export default function App() {
   return (
@@ -24,7 +26,19 @@ export default function App() {
       <Routes>
         <Route path="/"          element={<Home />} />
         <Route path="/landing"   element={<Landing />} />
-        <Route path="/store"     element={<Store />} />
+        <Route
+          path="/store"
+          element={(
+            <PrivateRoute>
+              <Store />
+            </PrivateRoute>
+          )}
+        />
+        <Route path="/newsletter" element={(
+          <PrivateRoute>
+            <Newsletter />
+          </PrivateRoute>
+        )} />
         <Route path="/videos"    element={<Videos />} />
         <Route path="/about"     element={<About />} />
         <Route path="/contact"   element={<Contact />} />

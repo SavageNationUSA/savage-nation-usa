@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext.jsx";
 import { ShoppingCart } from "lucide-react";
 
 const pages = [
   { key: "store",      label: "Store",      icon: ShoppingCart },
+  "newsletter",
   "videos","about","contact","gallery",
   "faq","story","charities","mission","toolshed","weeklyblog"
 ];
 
 export default function Landing() {
   const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
   const [navTerm, setNavTerm] = useState("");
 
   const handleNav = (term) => {
@@ -21,7 +24,15 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[url('/bg.png')] bg-cover bg-center text-white">
+    <div className="relative min-h-screen flex bg-[url('/bg.png')] bg-cover bg-center text-white">
+      {isAuthenticated && (
+        <button
+          onClick={logout}
+          className="absolute top-4 right-4 px-3 py-1 bg-red-600 text-white rounded"
+        >
+          Logout
+        </button>
+      )}
       <aside className="w-64 bg-black bg-opacity-70 p-6">
         <h3 className="text-2xl font-bold mb-4">Navigation</h3>
         <nav className="flex flex-col space-y-2">

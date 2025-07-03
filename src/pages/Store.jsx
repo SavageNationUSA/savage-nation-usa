@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../Layout";
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 const initialProducts = [
   { name: "Hat",    price: "$29.99" },
@@ -9,6 +10,7 @@ const initialProducts = [
 ];
 
 export default function Store() {
+  const { isAuthenticated } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const filtered = initialProducts.filter(p =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -31,9 +33,15 @@ export default function Store() {
             </div>
             <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
             <p className="mb-4">{item.price}</p>
-            <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">
-              Buy Now
-            </button>
+            {isAuthenticated ? (
+              <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">
+                Buy Now
+              </button>
+            ) : (
+              <Link to="/login" className="px-4 py-2 bg-gray-300 text-black rounded inline-block text-center">
+                Login to Buy
+              </Link>
+            )}
           </div>
         ))}
       </div>
