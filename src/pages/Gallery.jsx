@@ -3,9 +3,20 @@ import { Link } from "react-router-dom";
 import Layout from "../Layout";
 
 const galleryItems = [
-  { title: "Gallery Image 1" },
-  { title: "Gallery Image 2" },
-  { title: "Gallery Image 3" },
+  {
+    src: "/bg.png",
+    alt: "Website background with U.S. flag",
+  },
+  {
+    src:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80",
+    alt: "Silhouette of people cheering at a concert",
+  },
+  {
+    src:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80",
+    alt: "City skyline at night",
+  },
 ];
 
 export default function Gallery() {
@@ -15,9 +26,11 @@ export default function Gallery() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {galleryItems.map((item, i) => (
           <div key={i} className="border rounded-lg p-4 shadow">
-            <div className="h-40 bg-gray-200 mb-4 flex items-center justify-center">
-              <span className="text-gray-500">{item.title}</span>
-            </div>
+            <img
+              src={item.src}
+              alt={item.alt}
+              className="object-cover w-full h-40 mb-4 rounded"
+            />
           </div>
         ))}
       </div>
