@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../Layout";
 
 export default function Contact() {
@@ -25,9 +24,6 @@ export default function Contact() {
           Send Message
         </button>
       </form>
-      <Link to="/landing">
-        <button className="mt-6 px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
-      </Link>
     </Layout>
   );
 }

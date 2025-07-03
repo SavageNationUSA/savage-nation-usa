@@ -20,21 +20,6 @@ export default function Videos() {
         ))}
       </div>
       <br />
-      <a href="/landing">
-        <button
-          style={{
-            marginTop: 32,
-            padding: "14px 42px",
-            borderRadius: 8,
-            background: "#eee",
-            fontWeight: "bold",
-            fontSize: 18,
-            border: "none",
-            boxShadow: "2px 4px 14px #0002"
-          }}>
-          Back
-        </button>
-      </a>
     </div>
   );
 }

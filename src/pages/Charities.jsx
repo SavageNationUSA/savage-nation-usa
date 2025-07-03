@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Layout from "../Layout";
 
 export default function Charities() {
@@ -11,9 +10,6 @@ export default function Charities() {
         <li>Charity B – Provides tactical gear to first responders.</li>
         <li>Charity C – Funds wilderness rehabilitation programs.</li>
       </ul>
-      <Link to="/landing">
-        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
-      </Link>
     </Layout>
   );
 }

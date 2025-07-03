@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../Layout";
 import { loadPosts } from "../blogStorage";
 
@@ -28,9 +27,6 @@ export default function WeeklyBlog() {
           </li>
         ))}
       </ul>
-      <Link to="/landing">
-        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
-      </Link>
     </Layout>
   );
 }

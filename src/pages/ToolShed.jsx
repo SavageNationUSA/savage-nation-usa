@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Layout from "../Layout";
 
 export default function ToolShed() {
@@ -14,9 +13,6 @@ export default function ToolShed() {
         <li>Utility apps (coming soon!)</li>
         <li>Patriotic printables</li>
       </ul>
-      <Link to="/landing">
-        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md">Back</button>
-      </Link>
     </Layout>
   );
 }

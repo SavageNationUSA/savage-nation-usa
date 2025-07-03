@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "./contexts/AuthContext";
+import NavBar from "./NavBar";
 
 export default function Layout({ children, className = "", style = {} }) {
   const { isAuthenticated, logout } = useAuth();
@@ -11,6 +12,7 @@ export default function Layout({ children, className = "", style = {} }) {
       }
       style={{ backgroundImage: "url('/bg.png')", ...style }}
     >
+      <NavBar />
       {isAuthenticated && (
         <div className="absolute top-4 right-4">
           <button
