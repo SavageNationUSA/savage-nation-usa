@@ -30,6 +30,12 @@ Run the unit tests with:
 npm test
 ```
 
+To execute a single run without watch mode, use:
+
+```bash
+npx vitest run
+```
+
 
 ## Authentication
 
