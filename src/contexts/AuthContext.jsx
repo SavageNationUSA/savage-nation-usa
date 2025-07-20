@@ -1,23 +1,45 @@
 /* eslint react-refresh/only-export-components: off */
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithPhoneNumber,
+  onAuthStateChanged,
+  signOut
+} from 'firebase/auth';
+import { auth, googleProvider, setupRecaptcha } from '../firebase.js';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = ({ username, password }) => {
-    if (username === "admin" && password === "password123") {
-      setIsAuthenticated(true);
-      return true;
-    }
-    return false;
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, user => {
+      setIsAuthenticated(!!user);
+    });
+    return unsub;
+  }, []);
+
+  const loginEmail = async ({ email, password }) => {
+    await signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = () => setIsAuthenticated(false);
+  const loginGoogle = async () => {
+    await signInWithPopup(auth, googleProvider);
+  };
+
+  const loginPhone = async ({ phoneNumber, recaptchaId }) => {
+    const verifier = setupRecaptcha(recaptchaId);
+    await signInWithPhoneNumber(auth, phoneNumber, verifier);
+  };
+
+  const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, loginEmail, loginGoogle, loginPhone, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Layout from "../Layout";
-import { loadPosts } from "../blogStorage";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Layout from '../Layout';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase.js';
+import Comments from '../components/Comments.jsx';
 
 export default function WeeklyBlog() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    setPosts(loadPosts());
+    const load = async () => {
+      const snap = await getDocs(collection(db, 'posts'));
+      setPosts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    };
+    load();
   }, []);
 
   return (
@@ -25,6 +31,7 @@ export default function WeeklyBlog() {
             {post.content && (
               <p className="whitespace-pre-wrap text-sm mt-1">{post.content}</p>
             )}
+            <Comments postId={post.id} />
           </li>
         ))}
       </ul>
