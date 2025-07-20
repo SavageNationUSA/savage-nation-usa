@@ -23,13 +23,8 @@ npm run lint
 ```
 
 
-## Authentication
+## Firebase Configuration
 
-Use these sample credentials to access the site:
+Create a `.env` file based on `.env.example` and add your Firebase project credentials. Authentication supports Google, email/password and phone sign-in.
 
-| Role  | Username | Password     |
-|-------|----------|--------------|
-| Admin | `admin`  | `password123`|
-| User  | `user`   | `letmein`    |
-
-Authenticated users can visit the **Store** and **Newsletter** pages, while admins can edit blogs.
+Admins can manage products and blog posts from the `/admin` dashboard after signing in.

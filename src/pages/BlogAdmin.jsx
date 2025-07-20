@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Layout from "../Layout";
-import { loadPosts, savePosts } from "../blogStorage";
+import { Link } from 'react-router-dom';
+import Layout from '../Layout';
+import { collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase.js';
 
 export default function BlogAdmin() {
   const [posts, setPosts] = useState([]);
@@ -9,7 +10,11 @@ export default function BlogAdmin() {
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
-    setPosts(loadPosts());
+    const load = async () => {
+      const snap = await getDocs(collection(db, 'posts'));
+      setPosts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    };
+    load();
   }, []);
 
   const handleChange = (e) => {
@@ -22,20 +27,17 @@ export default function BlogAdmin() {
     setForm({ title: post.title, date: post.date || "", content: post.content || "" });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (editingId === null) {
-      const newPost = { ...form, id: Date.now() };
-      const updated = [...posts, newPost];
-      setPosts(updated);
-      savePosts(updated);
+      await addDoc(collection(db, 'posts'), form);
     } else {
-      const updated = posts.map((p) => (p.id === editingId ? { ...p, ...form } : p));
-      setPosts(updated);
-      savePosts(updated);
+      await updateDoc(doc(db, 'posts', editingId), form);
       setEditingId(null);
     }
-    setForm({ title: "", date: "", content: "" });
+    const snap = await getDocs(collection(db, 'posts'));
+    setPosts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    setForm({ title: '', date: '', content: '' });
   };
 
   return (

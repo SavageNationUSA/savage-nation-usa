@@ -16,6 +16,8 @@ import ToolShed from "./pages/ToolShed";
 import WeeklyBlog from "./pages/WeeklyBlog";
 import EditBlog from "./pages/EditBlog";
 import BlogAdmin from "./pages/BlogAdmin";
+import ProductAdmin from "./pages/ProductAdmin";
+import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -37,7 +39,9 @@ export default function App() {
         <Route path="/toolshed" element={<ToolShed />} />
         <Route path="/weeklyblog" element={<WeeklyBlog />} />
         <Route path="/edit-blog" element={<EditBlog />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/blog-admin" element={<BlogAdmin />} />
+        <Route path="/product-admin" element={<ProductAdmin />} />
         <Route path="/login"    element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

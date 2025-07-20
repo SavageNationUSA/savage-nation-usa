@@ -1,16 +1,21 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Layout from "../Layout";
-
-const initialProducts = [
-  { name: "Hat",    price: "$29.99" },
-  { name: "T-Shirt",price: "$29.99" },
-  { name: "Hoodie", price: "$29.99" },
-];
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Layout from '../Layout';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase.js';
 
 export default function Store() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const filtered = initialProducts.filter(p =>
+  const [searchTerm, setSearchTerm] = useState('');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const snap = await getDocs(collection(db, 'products'));
+      setProducts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    };
+    load();
+  }, []);
+  const filtered = products.filter(p =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
@@ -25,7 +30,7 @@ export default function Store() {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(item => (
-          <div key={item.name} className="bg-white border rounded-lg p-4 shadow-lg flex flex-col">
+          <div key={item.id} className="bg-white border rounded-lg p-4 shadow-lg flex flex-col">
             <div className="h-40 bg-gray-200 mb-4 flex items-center justify-center">
               <span className="text-gray-500">Image</span>
             </div>
