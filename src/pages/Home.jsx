@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Layout from "../Layout";
 
 export default function Home() {
   return (
-    <Layout className="text-white">
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center text-white"
+      style={{ backgroundImage: "url('/bg.png')" }}
+    >
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center">
         Savage Nation USA
       </h1>
-      <p className="mt-2 text-center text-blue-200">Proudly supporting our Veterans</p>
+      <p className="mt-.5 text-center text-blue-200">
+        Proudly supporting our Veterans
+      </p>
       <p className="mt-4 text-base sm:text-lg font-semibold text-red-500 uppercase text-center">
         ONLY ENTER IF YOU&apos;RE SAVAGE ENOUGH
       </p>
@@ -17,6 +21,6 @@ export default function Home() {
           Enter Here
         </button>
       </Link>
-    </Layout>
+    </div>
   );
 }
