@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center text-white"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center text-white p-4"
       style={{ backgroundImage: "url('/bg.png')" }}
     >
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center">
+      <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-center tracking-tight">
         Savage Nation USA
       </h1>
-      <p className="mt-.5 text-center text-blue-200">
+      <p className="mt-4 text-lg sm:text-xl text-center text-blue-200">
         Proudly supporting our Veterans
       </p>
-      <p className="mt-4 text-base sm:text-lg font-semibold text-red-500 uppercase text-center">
-        ONLY ENTER IF YOU&apos;RE SAVAGE ENOUGH
+      <p className="mt-6 text-lg sm:text-xl font-bold text-red-500 uppercase text-center tracking-wider">
+        ONLY ENTER IF YOU'RE SAVAGE ENOUGH
       </p>
       <Link to="/landing">
-        <button className="mt-6 px-8 py-4 bg-gradient-to-r from-blue-600 via-white to-red-600 text-white font-bold rounded-full shadow-lg ring-2 ring-white transition-transform hover:scale-105">
+        <Button size="lg" className="mt-8">
           Enter Here
-        </button>
+        </Button>
       </Link>
     </div>
   );
