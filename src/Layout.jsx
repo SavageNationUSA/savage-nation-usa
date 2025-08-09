@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PageTransition from "./components/PageTransition";
 
 export default function Layout({ className = "", style = {} }) {
   const { isAuthenticated, logout } = useAuth();
@@ -23,7 +24,9 @@ export default function Layout({ className = "", style = {} }) {
         </div>
       )}
       <main className="flex-grow container mx-auto w-full p-4 sm:p-8 mt-16">
-        <Outlet />
+        <PageTransition>
+          <Outlet />
+        </PageTransition>
       </main>
       <Footer />
     </div>

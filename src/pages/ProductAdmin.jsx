@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.js';
-import ImageGallery from '../components/ImageGallery';
+import ImageGallery from '@/components/ImageGallery';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export default function ProductAdmin() {
   const [products, setProducts] = useState([]);
@@ -33,34 +35,30 @@ export default function ProductAdmin() {
     <div className="p-8 text-white bg-gray-900 min-h-screen">
       <h2 className="text-2xl font-bold mb-4">Manage Products</h2>
       <form onSubmit={submit} className="space-y-2 mb-6">
-        <input
-          className="border p-2 rounded w-full bg-gray-800 text-white"
+        <Input
           placeholder="Name"
           value={form.name}
           onChange={e => setForm({ ...form, name: e.target.value })}
         />
-        <input
-          className="border p-2 rounded w-full bg-gray-800 text-white"
+        <Input
           placeholder="Price"
           value={form.price}
           onChange={e => setForm({ ...form, price: e.target.value })}
         />
         <div className="flex items-center space-x-2">
-          <input
-            className="border p-2 rounded w-full bg-gray-800 text-white"
+          <Input
             placeholder="Image URL"
             value={form.imageUrl}
             readOnly
           />
-          <button
+          <Button
             type="button"
             onClick={() => setShowGallery(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded"
           >
             Select Image
-          </button>
+          </Button>
         </div>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+        <Button>Save</Button>
       </form>
       <ul className="space-y-2">
         {products.map(p => (
@@ -75,12 +73,13 @@ export default function ProductAdmin() {
           <div className="bg-gray-800 p-4 rounded-lg max-w-3xl w-full">
             <h3 className="text-xl font-bold mb-4">Select an Image</h3>
             <ImageGallery onSelectImage={handleSelectImage} />
-            <button
+            <Button
+              variant="destructive"
               onClick={() => setShowGallery(false)}
-              className="mt-4 px-4 py-2 bg-red-600 text-white rounded"
+              className="mt-4"
             >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       )}
