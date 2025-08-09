@@ -1,14 +1,13 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const PageTransition = ({ children }) => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ x: '100vw', opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: '-100vw', opacity: 0 }}
+      transition={{ type: 'tween', ease: 'anticipate', duration: 0.75 }}
     >
       {children}
     </motion.div>
