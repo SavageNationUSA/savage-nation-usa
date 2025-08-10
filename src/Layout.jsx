@@ -22,7 +22,7 @@ export default function Layout({ className = "", style = {} }) {
           </button>
         </div>
       )}
-      <main className="flex-grow container mx-auto w-full p-4 sm:p-8 mt-16">
+      <main className="flex-grow container mx-auto w-full p-8 sm:p-16 mt-20">
         <Outlet />
       </main>
       <Footer />
