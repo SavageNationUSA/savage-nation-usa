@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import Layout from '../Layout';
 import { collection, getDocs } from 'firebase/firestore';
@@ -31,7 +30,6 @@ export default function Store() {
           onChange={e => setSearchTerm(e.target.value)}
         />
       </div>
-      />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtered.map(item => (
           <div key={item.id} className="bg-white rounded-lg flex flex-col items-center text-center transition-shadow duration-300 hover:shadow-xl overflow-hidden">
