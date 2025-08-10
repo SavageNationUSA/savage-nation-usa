@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.js';
-import ImageGallery from '@/components/ImageGallery';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import ImageGallery from '../components/ImageGallery';
 
 export default function BlogAdmin() {
   const [posts, setPosts] = useState([]);
@@ -53,50 +50,51 @@ export default function BlogAdmin() {
     <div className="p-8 text-white bg-gray-900 min-h-screen">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4">Blog Admin</h2>
       <form onSubmit={handleSubmit} className="space-y-3 mb-6 max-w-md">
-        <Input
+        <input
           name="title"
           value={form.title}
           onChange={handleChange}
           placeholder="Title"
+          className="w-full p-2 border rounded bg-gray-800 text-white"
         />
-        <Input
+        <input
           name="date"
           value={form.date}
           onChange={handleChange}
           placeholder="Date"
+          className="w-full p-2 border rounded bg-gray-800 text-white"
         />
         <div className="relative">
-          <Textarea
+          <textarea
             name="content"
             value={form.content}
             onChange={handleChange}
             placeholder="Content (Markdown supported)"
+            className="w-full p-2 border rounded bg-gray-800 text-white"
             rows="10"
           />
-          <Button
+          <button
             type="button"
-            variant="ghost"
-            size="sm"
             onClick={() => setShowGallery(true)}
-            className="absolute top-2 right-2"
+            className="absolute top-2 right-2 px-2 py-1 bg-blue-600 text-white rounded text-sm"
           >
             Select Image
-          </Button>
+          </button>
         </div>
-        <Button type="submit">
+        <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">
           {editingId === null ? "Add Post" : "Save Post"}
-        </Button>
+        </button>
         {editingId !== null && (
-          <Button
+          <button
             type="button"
-            variant="secondary"
             onClick={() => {
               setEditingId(null);
               setForm({ title: "", date: "", content: "" });
             }}
+            className="ml-2 px-4 py-2 bg-gray-300 rounded"
           >
             Cancel
-          </Button>
+          </button>
         )}
       </form>
       <ul className="space-y-2 max-w-xl">
@@ -111,14 +109,14 @@ export default function BlogAdmin() {
                 <p className="text-sm mt-1 whitespace-pre-wrap">{post.content}</p>
               )}
             </div>
-            <Button variant="outline" size="sm" onClick={() => handleEdit(post)}>
+            <button onClick={() => handleEdit(post)} className="px-2 py-1 bg-green-600 text-white rounded">
               Edit
-            </Button>
+            </button>
           </li>
         ))}
       </ul>
       <Link to="/weeklyblog" className="block mt-8">
-        <Button variant="outline">Back to Blog</Button>
+        <button className="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-md text-black">Back to Blog</button>
       </Link>
 
       {showGallery && (
@@ -126,13 +124,12 @@ export default function BlogAdmin() {
           <div className="bg-gray-800 p-4 rounded-lg max-w-3xl w-full">
             <h3 className="text-xl font-bold mb-4">Select an Image</h3>
             <ImageGallery onSelectImage={handleSelectImage} />
-            <Button
-              variant="destructive"
+            <button
               onClick={() => setShowGallery(false)}
-              className="mt-4"
+              className="mt-4 px-4 py-2 bg-red-600 text-white rounded"
             >
               Close
-            </Button>
+            </button>
           </div>
         </div>
       )}

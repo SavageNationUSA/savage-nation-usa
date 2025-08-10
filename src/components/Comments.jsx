@@ -30,7 +30,7 @@ export default function Comments({ postId }) {
     <div className="mt-2">
       <ul className="space-y-1">
         {comments.map(c => (
-          <li key={c.id} className="border p-1 rounded">
+          <li key={c.id} className="border border-gray-300 p-1 rounded">
             {c.text}
           </li>
         ))}
@@ -38,7 +38,7 @@ export default function Comments({ postId }) {
       {isAuthenticated && (
         <form onSubmit={submit} className="mt-2 flex space-x-2">
           <input
-            className="border p-1 flex-1 rounded"
+            className="border border-gray-300 p-1 flex-1 rounded"
             value={text}
             onChange={e => setText(e.target.value)}
           />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { ShoppingCart, Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ShoppingCart } from 'lucide-react';
 
 const pages = [
   { key: 'landing', label: 'Home' },
@@ -43,9 +42,11 @@ const Navbar = () => {
         </div>
         {/* Mobile menu button */}
         <div className="md:hidden">
-            <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-            </Button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
       </div>
     </nav>
