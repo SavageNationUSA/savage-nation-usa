@@ -3,12 +3,13 @@ import { Outlet } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "./styles/layout.scss";
 
 export default function Layout({ className = "", style = {} }) {
   const { isAuthenticated, logout } = useAuth();
   return (
     <div
-      className={"relative min-h-screen flex flex-col bg-cover bg-center " + className}
+      className={"layout-grid relative bg-cover bg-center " + className}
       style={{ backgroundImage: "url('/bg.png')", ...style }}
     >
       <Navbar />
@@ -22,7 +23,7 @@ export default function Layout({ className = "", style = {} }) {
           </button>
         </div>
       )}
-      <main className="flex-grow container mx-auto w-full p-4 sm:p-8 mt-16">
+      <main className="section container mx-auto w-full">
         <Outlet />
       </main>
       <Footer />

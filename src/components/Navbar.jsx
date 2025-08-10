@@ -19,7 +19,7 @@ const pages = [
 
 const Navbar = () => {
   return (
-    <nav className="bg-black bg-opacity-70 text-white p-4">
+    <nav className="section bg-black bg-opacity-70 text-white">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/landing" className="text-2xl font-bold">
           Savage Nation USA

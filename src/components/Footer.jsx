@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black bg-opacity-70 text-white p-4 mt-auto">
+    <footer className="section bg-black bg-opacity-70 text-white">
       <div className="container mx-auto text-center">
         <div className="flex justify-center space-x-4 mb-4">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">

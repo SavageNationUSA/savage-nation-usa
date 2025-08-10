@@ -1,0 +1,27 @@
+$spacing-unit: 1rem;
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: $spacing-unit;
+}
+
+.section {
+  padding: $spacing-unit;
+}
+
+@media (min-width: 768px) {
+  .layout-grid {
+    grid-template-columns: 200px 1fr;
+    gap: $spacing-unit * 2;
+  }
+  .layout-grid > nav,
+  .layout-grid > footer {
+    grid-column: 1 / -1;
+  }
+  .section {
+    padding: $spacing-unit * 2;
+  }
+}
