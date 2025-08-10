@@ -1,6 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-primary: #1e3a8a;
+  --color-secondary: #dc2626;
+  --color-accent: #fbbf24;
+  --color-background: #f9fafb;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
 .page-bg {
   background-image: url('/bg.png');
   background-size: cover;

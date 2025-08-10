@@ -19,18 +19,18 @@ export default function Store() {
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <Layout className="p-8 text-black">
+    <Layout className="p-12 text-black">
       <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Store</h2>
       <input
-        className="mb-6 px-4 py-2 border rounded w-full max-w-md placeholder-black/50"
+        className="mb-6 px-4 py-2 border border-gray-300 rounded w-full max-w-md placeholder-black/50"
         type="text"
         placeholder="Search products..."
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtered.map(item => (
-          <div key={item.id} className="bg-white border rounded-lg p-4 shadow-lg flex flex-col">
+          <div key={item.id} className="bg-white rounded-lg p-6 flex flex-col">
             <div className="h-40 bg-gray-200 mb-4 flex items-center justify-center">
               <span className="text-gray-500">Image</span>
             </div>
