@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/hero.webp';
+
+// Use a background image from the public directory since hero.webp is missing
+const heroImage = '/bg.png';
 
 const Hero = () => {
   return (
